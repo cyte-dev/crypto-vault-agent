@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group = 'co.cyte.agent'
+version = '1.0.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "https://jcenter.bintray.com/" }
+    maven { url "https://jitpack.io" }
+}
+dependencies {
+    implementation project(':agent-core') // Usa agent-core
+
+    // Dependencias para filesystem virtual
+    implementation 'dev.dokan:dokan-java:1.2.0-SNAPSHOT'
+    implementation 'net.java.dev.jna:jna:5.5.0'
+    implementation 'net.java.dev.jna:jna-platform:5.5.0'
+}

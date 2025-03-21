@@ -1,0 +1,45 @@
+plugins {
+    // Para compilar código Java
+    id 'java'
+}
+
+// Información del proyecto
+group = 'co.cyte.agent'
+version = '1.0.0-SNAPSHOT'
+
+// Declaración de repositorios
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "https://jcenter.bintray.com/" }
+    maven { url "https://jitpack.io" }
+}
+
+// Sección de dependencias
+dependencies {
+    // En Maven <scope>test</scope> => Gradle testImplementation
+    testImplementation 'junit:junit:3.8.1'
+
+    // Resto de dependencias => Gradle implementation (o runtimeOnly, etc.)
+    implementation 'org.apache.logging.log4j:log4j-core:2.24.1'
+    implementation 'org.apache.logging.log4j:log4j-api:2.24.1'
+
+    implementation 'org.bouncycastle:bcmail-jdk18on:1.78.1'
+    implementation 'org.bouncycastle:bcprov-jdk18on:1.78.1'
+
+    // Maven <scope>runtime</scope> => Gradle runtimeOnly
+    runtimeOnly 'com.h2database:h2:2.2.224'
+}
+
+// Ajustes de compilación Java
+java {
+    // Equivale a <source>1.8</source> y <target>1.8</target> en Maven
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+// Opcional: Establecer encoding, propiedades de compilador, etc.
+tasks.withType(JavaCompile) {
+    // Equivale a <argLine>-Dfile.encoding=UTF-8</argLine> en Maven
+    options.encoding = 'UTF-8'
+}

@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+}
+
+group = 'co.cyte.agent'
+version = '1.0.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Dependencias de cifrado, utilidades, etc.
+    implementation 'org.bouncycastle:bcprov-jdk18on:1.78.1'
+}
