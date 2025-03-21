@@ -4,7 +4,7 @@ public interface VirtualDrive {
     /**
      * Monta la unidad virtual en la ruta especificada.
      *
-     * @param mountPoint la letra o ruta de montaje (por ejemplo, "X:\")
+     * @param mountPoint la letra o ruta de montaje
      * @return 0 si la operación fue exitosa; otro valor indica error.
      */
     int mount(String mountPoint);

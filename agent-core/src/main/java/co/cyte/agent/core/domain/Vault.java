@@ -1,5 +1,7 @@
 package co.cyte.agent.core.domain;
 
+import co.cyte.agent.core.crypto.AESCipher;
+import co.cyte.agent.core.crypto.EncryptionAlgorithm;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.ArrayList;
@@ -10,10 +12,20 @@ public class Vault {
     private final List<EncryptedFile> encryptedFiles;
     private boolean unlocked;
 
-    // Referencia al servicio de unidad virtual (inyectado o configurado externamente)
-    private VirtualDrive virtualDrive;
-    private final String mountPoint = "X:\\"; // Ejemplo: letra de unidad virtual
+    // Servicio para montar la unidad virtual (definido en otro módulo)
+    private final VirtualDrive virtualDrive;
+    private final String mountPoint = "F:\\";
 
+    // Instancia del algoritmo de cifrado/descifrado (simulado)
+    private final EncryptionAlgorithm encryptionAlgorithm;
+
+    /**
+     * Crea una bóveda en el directorio especificado y recibe la implementación de VirtualDrive.
+     * Se instancia el algoritmo de cifrado (AESCipherSimulator) que se usará para cada archivo.
+     *
+     * @param vaultDirectory ruta del directorio que contendrá la bóveda
+     * @param virtualDrive   servicio para montar/desmontar la unidad virtual
+     */
     public Vault(String vaultDirectory, VirtualDrive virtualDrive) {
         this.vaultPath = Paths.get(vaultDirectory);
         if (!Files.exists(vaultPath)) {
@@ -24,17 +36,24 @@ public class Vault {
                 throw new RuntimeException("Error creating vault directory", e);
             }
         }
+        this.virtualDrive = virtualDrive;
+        // Instanciar la implementación simulada del algoritmo criptográfico
+        this.encryptionAlgorithm = new AESCipher();
         this.encryptedFiles = new ArrayList<>();
         loadEncryptedFiles();
-        this.virtualDrive = virtualDrive;
         this.unlocked = false;
     }
 
+    /**
+     * Carga todos los archivos en el directorio de la bóveda y crea para cada uno una instancia de EncryptedFile,
+     * pasando la instancia de EncryptionAlgorithm.
+     */
     private void loadEncryptedFiles() {
         try (DirectoryStream<Path> stream = Files.newDirectoryStream(vaultPath)) {
             for (Path file : stream) {
                 if (Files.isRegularFile(file)) {
-                    encryptedFiles.add(new EncryptedFile(file));
+                    // Se pasa encryptionAlgorithm para que EncryptedFile use AESCipherSimulator
+                    encryptedFiles.add(new EncryptedFile(file, encryptionAlgorithm));
                 }
             }
         } catch (IOException e) {
@@ -43,14 +62,14 @@ public class Vault {
     }
 
     /**
-     * Desbloquea la bóveda: descifra todos los archivos y monta la unidad virtual.
+     * Desbloquea la bóveda: para cada archivo, llama a decrypt() y, luego, monta la unidad virtual.
      */
     public void unlockVault() {
         if (unlocked) {
             System.out.println("Vault is already unlocked.");
             return;
         }
-        // Descifrar archivos (simulación)
+        // Descifrar todos los archivos (simulación)
         for (EncryptedFile ef : encryptedFiles) {
             try {
                 ef.decrypt();
@@ -66,35 +85,5 @@ public class Vault {
         } else {
             System.err.println("Failed to mount virtual drive. Error code: " + result);
         }
-    }
-
-    /**
-     * Bloquea la bóveda: cifra todos los archivos y desmonta la unidad virtual.
-     */
-    public void lockVault() {
-        if (!unlocked) {
-            System.out.println("Vault is already locked.");
-            return;
-        }
-        // Desmontar la unidad virtual
-        int result = virtualDrive.unmount(mountPoint);
-        if (result == 0) {
-            // Opcional: volver a cifrar archivos si fuera necesario.
-            for (EncryptedFile ef : encryptedFiles) {
-                try {
-                    ef.encrypt();
-                } catch (IOException e) {
-                    System.err.println("Error encrypting file " + ef.getFilePath() + ": " + e.getMessage());
-                }
-            }
-            unlocked = false;
-            System.out.println("Vault locked and virtual drive unmounted.");
-        } else {
-            System.err.println("Failed to unmount virtual drive. Error code: " + result);
-        }
-    }
-
-    public List<EncryptedFile> getEncryptedFiles() {
-        return encryptedFiles;
     }
 }

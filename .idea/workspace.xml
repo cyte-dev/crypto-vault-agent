@@ -5,30 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23402a6e-af0a-4735-bfd1-14f2b29d63cb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agent-backend/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agent-backend/src/main/java/co/cyte/agent/backend/filesystem/DokanFileSystem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agent-core/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agent-core/src/main/java/co/cyte/agent/core/domain/EncryptedFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agent-core/src/main/java/co/cyte/agent/core/domain/UserSession.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agent-core/src/main/java/co/cyte/agent/core/domain/Vault.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agent-core/src/main/java/co/cyte/agent/core/domain/VirtualDrive.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agent-frontend/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agent-frontend/src/main/java/co/cyte/agent/frontend/ui/MainApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agent-frontend/src/main/java/co/cyte/agent/frontend/ui/controllers/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agent-frontend/src/main/resources/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agent-frontend/src/main/resources/views/main-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent-core/src/main/java/co/cyte/agent/core/crypto/AESCipher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent-core/src/main/java/co/cyte/agent/core/crypto/CryptoUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent-core/src/main/java/co/cyte/agent/core/crypto/EncryptionAlgorithm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent-core/src/main/java/co/cyte/agent/core/crypto/KeyGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent-core/src/main/java/co/cyte/agent/core/services/AuthenticationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent-core/src/main/java/co/cyte/agent/core/services/EncryptionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent-core/src/main/java/co/cyte/agent/core/services/KeyManger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agent-core/src/main/java/co/cyte/agent/core/domain/EncryptedFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/agent-core/src/main/java/co/cyte/agent/core/domain/EncryptedFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agent-core/src/main/java/co/cyte/agent/core/domain/Vault.java" beforeDir="false" afterPath="$PROJECT_DIR$/agent-core/src/main/java/co/cyte/agent/core/domain/Vault.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agent-core/src/main/java/co/cyte/agent/core/domain/VirtualDrive.java" beforeDir="false" afterPath="$PROJECT_DIR$/agent-core/src/main/java/co/cyte/agent/core/domain/VirtualDrive.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,27 +52,20 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="crypto-vault-agent" type="f1a62948:ProjectNode" />
-                <item name="agent-backend" type="2d1252cf:ModuleNode" />
+                <item name="agent-frontend" type="2d1252cf:ModuleNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="crypto-vault-agent" type="f1a62948:ProjectNode" />
-                <item name="agent-backend" type="2d1252cf:ModuleNode" />
+                <item name="agent-frontend" type="2d1252cf:ModuleNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="crypto-vault-agent" type="f1a62948:ProjectNode" />
-                <item name="agent-backend" type="2d1252cf:ModuleNode" />
+                <item name="agent-frontend" type="2d1252cf:ModuleNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="crypto-vault-agent" type="f1a62948:ProjectNode" />
-                <item name="agent-backend" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="help" type="c8890929:TasksNode$1" />
+                <item name="application" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -120,9 +100,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "temurin-17",
     "last_opened_file_path": "C:/Users/lStel/OneDrive/Escritorio/Laboral/Cyte/Repositorios/crypto-vault-agent/agent-frontend/src/main/resources",
     "list.type.of.created.stylesheet": "CSS",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
   }
@@ -142,7 +123,28 @@
       <recent name="C:\Users\lStel\OneDrive\Escritorio\Laboral\Cyte\Repositorios\crypto-vault-agent\agent-frontend\src\main" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.crypto-vault-agent:agent-backend [build]">
+  <component name="RunManager" selected="Gradle.crypto-vault-agent:agent-frontend [run]">
+    <configuration name="crypto-vault-agent [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="crypto-vault-agent [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -155,27 +157,6 @@
         <option name="taskNames">
           <list>
             <option value="clean" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="crypto-vault-agent [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="dependencies" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -206,27 +187,6 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="crypto-vault-agent:agent-backend [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/agent-backend" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="clean" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <configuration name="crypto-vault-agent:agent-backend [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -248,13 +208,34 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="crypto-vault-agent:agent-frontend [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/agent-frontend" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.crypto-vault-agent:agent-frontend [run]" />
+        <item itemvalue="Gradle.crypto-vault-agent [build]" />
+        <item itemvalue="Gradle.crypto-vault-agent [clean]" />
         <item itemvalue="Gradle.crypto-vault-agent:agent-backend [build]" />
         <item itemvalue="Gradle.crypto-vault-agent:agent-backend [dependencies]" />
-        <item itemvalue="Gradle.crypto-vault-agent:agent-backend [clean]" />
-        <item itemvalue="Gradle.crypto-vault-agent [dependencies]" />
-        <item itemvalue="Gradle.crypto-vault-agent [clean]" />
       </list>
     </recent_temporary>
   </component>
@@ -267,7 +248,7 @@
       <option name="presentableId" value="Default" />
       <updated>1742508319106</updated>
       <workItem from="1742508320961" duration="5328000" />
-      <workItem from="1742558230330" duration="5565000" />
+      <workItem from="1742558230330" duration="7085000" />
     </task>
     <servers />
   </component>
