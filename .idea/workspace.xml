@@ -123,7 +123,7 @@
       <recent name="C:\Users\lStel\OneDrive\Escritorio\Laboral\Cyte\Repositorios\crypto-vault-agent\agent-frontend\src\main" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.crypto-vault-agent:agent-frontend [run]">
+  <component name="RunManager" selected="Gradle.crypto-vault-agent:agent-backend [build]">
     <configuration name="crypto-vault-agent [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -187,7 +187,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="crypto-vault-agent:agent-backend [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="crypto-vault-agent:agent-backend [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/agent-backend" />
@@ -198,7 +198,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="dependencies" />
+            <option value="clean" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -231,11 +231,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.crypto-vault-agent:agent-backend [build]" />
+        <item itemvalue="Gradle.crypto-vault-agent:agent-backend [clean]" />
         <item itemvalue="Gradle.crypto-vault-agent:agent-frontend [run]" />
         <item itemvalue="Gradle.crypto-vault-agent [build]" />
         <item itemvalue="Gradle.crypto-vault-agent [clean]" />
-        <item itemvalue="Gradle.crypto-vault-agent:agent-backend [build]" />
-        <item itemvalue="Gradle.crypto-vault-agent:agent-backend [dependencies]" />
       </list>
     </recent_temporary>
   </component>

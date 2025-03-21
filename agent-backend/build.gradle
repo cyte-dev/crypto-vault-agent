@@ -16,6 +16,7 @@ dependencies {
 
     // Dependencias para filesystem virtual
     implementation 'dev.dokan:dokan-java:1.2.0-SNAPSHOT'
+    implementation files('libs/dokan-java-1.2.0-SNAPSHOT.jar')
     implementation 'net.java.dev.jna:jna:5.5.0'
     implementation 'net.java.dev.jna:jna-platform:5.5.0'
 }
