@@ -1,82 +1,71 @@
 package co.cyte.agent.core.domain;
 
-import co.cyte.agent.core.crypto.EncryptionAlgorithm;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.*;
-import java.util.List;
+import java.nio.file.Path;
+import java.util.Objects;
 
+/**
+ * Representa un archivo en su forma cifrada, tal como se almacena en la bóveda.
+ *
+ * Contiene la información esencial:
+ * - originalName: el nombre original del archivo (sin la extensión de cifrado, por ejemplo, sin ".cv").
+ * - filePath: la ubicación del archivo cifrado en el sistema de archivos.
+ * - fileSize: el tamaño del archivo cifrado, en bytes.
+ *
+ * Esta clase sirve como modelo de dominio y se puede complementar con métodos de
+ * validación o de acceso a metadatos en futuras versiones.
+ */
 public class EncryptedFile {
+
+    private final String originalName;
     private final Path filePath;
-    private final EncryptionAlgorithm encryptionAlgorithm;
+    private final long fileSize;
 
     /**
-     * Constructor que recibe la ruta del archivo y la instancia de algoritmo de cifrado.
+     * Crea una instancia de EncryptedFile.
      *
-     * @param filePath la ruta del archivo
-     * @param encryptionAlgorithm la implementación a usar para cifrar/descifrar
+     * @param originalName El nombre original del archivo (sin extensión de cifrado).
+     * @param filePath La ruta completa del archivo cifrado en disco.
+     * @param fileSize El tamaño del archivo cifrado, en bytes.
      */
-    public EncryptedFile(Path filePath, EncryptionAlgorithm encryptionAlgorithm) {
+    public EncryptedFile(String originalName, Path filePath, long fileSize) {
+        this.originalName = originalName;
         this.filePath = filePath;
-        this.encryptionAlgorithm = encryptionAlgorithm;
+        this.fileSize = fileSize;
+    }
+
+    public String getOriginalName() {
+        return originalName;
     }
 
     public Path getFilePath() {
         return filePath;
     }
 
-    /**
-     * Verifica si el archivo está cifrado.
-     * Se considera cifrado si la primera línea es "ARCHIVO CIFRADO".
-     *
-     * @return true si el archivo está cifrado, false de lo contrario.
-     * @throws IOException si ocurre un error al leer el archivo.
-     */
-    public boolean isEncrypted() throws IOException {
-        if (!Files.exists(filePath)) {
-            throw new IOException("File not found: " + filePath);
-        }
-        List<String> lines = Files.readAllLines(filePath, StandardCharsets.UTF_8);
-        return !lines.isEmpty() && lines.get(0).equals("ARCHIVO CIFRADO");
+    public long getFileSize() {
+        return fileSize;
     }
 
-    /**
-     * Cifra el archivo utilizando el algoritmo configurado.
-     *
-     * @throws IOException si ocurre un error al leer o escribir el archivo.
-     */
-    public void encrypt() throws IOException {
-        if (!Files.exists(filePath)) {
-            throw new IOException("File not found: " + filePath);
-        }
-        String content = new String(Files.readAllBytes(filePath), StandardCharsets.UTF_8);
-        if (content.startsWith("ARCHIVO CIFRADO")) {
-            System.out.println("File already encrypted: " + filePath);
-            return;
-        }
-        String encryptedContent = encryptionAlgorithm.encrypt(content);
-        Files.write(filePath, encryptedContent.getBytes(StandardCharsets.UTF_8),
-                StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
-        System.out.println("File encrypted: " + filePath);
+    @Override
+    public String toString() {
+        return "EncryptedFile{" +
+                "originalName='" + originalName + '\'' +
+                ", filePath=" + filePath +
+                ", fileSize=" + fileSize +
+                '}';
     }
 
-    /**
-     * Descifra el archivo utilizando el algoritmo configurado.
-     *
-     * @throws IOException si ocurre un error al leer o escribir el archivo.
-     */
-    public void decrypt() throws IOException {
-        if (!Files.exists(filePath)) {
-            throw new IOException("File not found: " + filePath);
-        }
-        String content = new String(Files.readAllBytes(filePath), StandardCharsets.UTF_8);
-        if (!content.startsWith("ARCHIVO CIFRADO")) {
-            System.out.println("File is not encrypted: " + filePath);
-            return;
-        }
-        String decryptedContent = encryptionAlgorithm.decrypt(content);
-        Files.write(filePath, decryptedContent.getBytes(StandardCharsets.UTF_8),
-                StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
-        System.out.println("File decrypted: " + filePath);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof EncryptedFile)) return false;
+        EncryptedFile that = (EncryptedFile) o;
+        return fileSize == that.fileSize &&
+                Objects.equals(originalName, that.originalName) &&
+                Objects.equals(filePath, that.filePath);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(originalName, filePath, fileSize);
     }
 }

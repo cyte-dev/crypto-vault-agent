@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.cyte.agent.frontend.ui.controllers.MainController">
+    <!-- Left panel: ListView and connection buttons -->
+    <left>
+        <VBox spacing="20" alignment="CENTER" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <!-- ListView to display the vault IDs connected -->
+            <ListView fx:id="vaultListView" prefWidth="200"/>
+            <!-- Button to connect a vault -->
+            <Button text="Conectar bóveda" onAction="#handleConnectVault"/>
+            <!-- Button to disconnect a vault -->
+            <Button text="Desconectar bóveda" onAction="#handleDisconnectVault"/>
+        </VBox>
+    </left>
+    <!-- Right panel: Lock/Unlock buttons -->
+    <right>
+        <VBox spacing="20" alignment="CENTER" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <!-- Button to lock the vault -->
+            <Button fx:id="btnUnlockVault" text="Desbloquear" onAction="#handleUnlockVault"/>
+            <!-- Button to unlock the vault -->
+            <Button fx:id="btnLockVault" text="Bloquear" onAction="#handleLockVault"/>
+        </VBox>
+    </right>
+</BorderPane>

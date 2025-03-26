@@ -9,7 +9,16 @@ repositories {
     mavenCentral()
 }
 
+test {
+    useJUnitPlatform()
+}
+
 dependencies {
     // Dependencias de cifrado, utilidades, etc.
     implementation 'org.bouncycastle:bcprov-jdk18on:1.78.1'
+
+    implementation 'org.springframework:spring-context:5.3.24'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.3'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.3'
 }

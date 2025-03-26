@@ -1,30 +1,32 @@
 package co.cyte.agent.core.crypto;
 
+import java.io.InputStream;
+import java.io.OutputStream;
+
+/**
+ * TODO: Implementación simulada de EncryptionAlgorithm utilizando "AES".
+ */
 public class AESCipher implements EncryptionAlgorithm {
 
     @Override
-    public String encrypt(String plainText) {
-        // Si ya está cifrado, retorna el contenido sin cambios.
-        if (plainText.startsWith("ARCHIVO CIFRADO")) {
-            return plainText;
+    public void encrypt(InputStream in, String alias, OutputStream out) throws Exception {
+        // Simulación: se copia el contenido sin transformar.
+        byte[] buffer = new byte[4096];
+        int bytesRead;
+        while ((bytesRead = in.read(buffer)) != -1) {
+            out.write(buffer, 0, bytesRead);
         }
-        // Simula el cifrado anteponiendo la línea "ARCHIVO CIFRADO"
-        return "ARCHIVO CIFRADO\n" + plainText;
+        out.flush();
     }
 
     @Override
-    public String decrypt(String cipherText) {
-        // Si el contenido inicia con "ARCHIVO CIFRADO", lo reemplaza por "ARCHIVO DESCIFRADO"
-        if (cipherText.startsWith("ARCHIVO CIFRADO")) {
-            int newlineIndex = cipherText.indexOf("\n");
-            if (newlineIndex != -1) {
-                String rest = cipherText.substring(newlineIndex + 1);
-                return "ARCHIVO DESCIFRADO\n" + rest;
-            } else {
-                return "ARCHIVO DESCIFRADO";
-            }
+    public void decrypt(InputStream in, String alias, OutputStream out) throws Exception {
+        // Simulación: se copia el contenido sin transformar.
+        byte[] buffer = new byte[4096];
+        int bytesRead;
+        while ((bytesRead = in.read(buffer)) != -1) {
+            out.write(buffer, 0, bytesRead);
         }
-        // Si no está cifrado, retorna el contenido original.
-        return cipherText;
+        out.flush();
     }
 }

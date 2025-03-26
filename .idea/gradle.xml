@@ -11,6 +11,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/agent-backend" />
+            <option value="$PROJECT_DIR$/agent-config" />
             <option value="$PROJECT_DIR$/agent-core" />
             <option value="$PROJECT_DIR$/agent-frontend" />
           </set>

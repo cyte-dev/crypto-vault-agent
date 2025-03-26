@@ -3,3 +3,5 @@ rootProject.name = 'crypto-vault-agent'
 include 'agent-core'
 include 'agent-backend'
 include 'agent-frontend'
+include 'agent-config'
+

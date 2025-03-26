@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'org.springframework.boot' version '2.7.3'
+    id 'io.spring.dependency-management' version '1.0.13.RELEASE'
 }
 
 group = 'co.cyte.agent'
@@ -11,12 +13,28 @@ repositories {
     maven { url "https://jcenter.bintray.com/" }
     maven { url "https://jitpack.io" }
 }
-dependencies {
-    implementation project(':agent-core') // Usa agent-core
 
-    // Dependencias para filesystem virtual
-    implementation 'dev.dokan:dokan-java:1.2.0-SNAPSHOT'
+test {
+    useJUnitPlatform()
+}
+
+springBoot {
+    mainClass = 'co.cyte.agent.backend.AgentApplication'
+}
+
+dependencies {
+    implementation project(':agent-core')
+
     implementation files('libs/dokan-java-1.2.0-SNAPSHOT.jar')
     implementation 'net.java.dev.jna:jna:5.5.0'
     implementation 'net.java.dev.jna:jna-platform:5.5.0'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework:spring-context:5.3.24'
+    implementation 'org.springframework:spring-webmvc:5.3.24'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.3'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.3'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 }
